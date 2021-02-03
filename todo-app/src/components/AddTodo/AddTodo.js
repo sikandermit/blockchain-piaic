@@ -6,9 +6,11 @@ const AddTodo = (props) => {
         <form onSubmit={(event)=>{
             event.preventDefault();
             let input = event.target.userInput.value;
+            if(input!="")
+            {
             props.dispatch(addTodo(input));
             event.target.userInput.value = "";
-            
+            }
         }}>
             <input type="text" name="userInput"/>
             <button>Submit</button>
