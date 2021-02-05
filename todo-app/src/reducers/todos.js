@@ -1,35 +1,25 @@
-const initialState =  {
+const todos = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return [
+        ...state,
+        {
+          id: action.id,
+          text: action.text,
+          completed: false
+        }
+      ];
+    case 'TOGGLE_TODO':
+      return state.map(todo =>
+          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+        );
 
-    data: [],
-};
+        case 'DELETE_TODO':
+      return state.filter(todo => todo.id !== action.id);
 
-const todos = (state = initialState , action) => {
-    switch(action.type)
-    {
-        case "ADD_TODO" :
-            return {
-                ...state,
-                data:[
-                    ...state.data, 
-                    {
-                        message: action.message,
-                        id: action.id,
-                    }
-                ]
-            };
-        
-        case "DELETE_TODO" :
-            const todos = state.data.filter((todo)=>todo.id !==action.id);
-    
-            return {
-                ...state,
-                data: todos,
-            };
-        
-        default: 
-        return state; 
-    }
-
-};
+    default:
+      return state;
+  }
+}
 
 export default todos;
