@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux';
 import {addTodo} from '../../actions';
+import {deleteTodo} from '../../actions';
 const AddTodo = (props) => {
     return (
         <form onSubmit={(event)=>{

@@ -2,15 +2,15 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {deleteTodo} from '../actions'
 
-let RemoveTodo = ({id,dispatch}) => {
+let RemoveTodo = ({id, dispatch}) => {
   return (
       <div>
-        <button onClick={e => {
+        <a onClick={e => {
           e.preventDefault()
-          dispatch(deleteTodo())
+          dispatch(deleteTodo(id))
 
-          //console.log(dispatch(deleteTodo()));
-        }}>X</button>
+          //console.log(dispatch(deleteTodo(id)));
+        }}>X</a>
       </div>
   )
 }

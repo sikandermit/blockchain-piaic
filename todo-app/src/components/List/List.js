@@ -10,7 +10,7 @@ const List = (props) => {
             {props.todos.map((todos,index)=>(
                 <li key={index}><input type="checkbox"/>
                     {todos.message}
-                <button onClick={()=>props.dispatch(deleteTodo(todos.id))}>Delete</button>
+                    
                 </li>
             ))}
         </ul>
